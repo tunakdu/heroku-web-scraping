@@ -17,7 +17,7 @@ class Hepsiburada
                let saltData = dataResponse["product"];
 
 
-
+console.log(saltData);
 
                if(saltData["variants"].length > 0){
 
