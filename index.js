@@ -38,7 +38,7 @@ app.post("/hb", (req,res) => {
           let split = url.split(search);
           let split2 = split[0];
           hepsiburadaClass.getProductDetail(split2).then((response) => {
-               console.log(response);
+               console.log("tunaaaaaaaa geliyor muuu");
                res.send(response);
           });
      }
