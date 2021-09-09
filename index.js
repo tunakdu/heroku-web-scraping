@@ -14,7 +14,7 @@ let trendyolClass = new Trendyol();
 
 
 
-app.post("/trendyol", (req,res) => {
+app.post("/trendyoll", (req,res) => {
 
           const url =  req.body["url"];
           trendyolClass.getProductDetail(url).then((response) => {
