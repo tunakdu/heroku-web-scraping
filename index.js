@@ -29,19 +29,30 @@ app.post("/hb", (req,res) => {
      let search= "?magaza";
      let searchResponse = url.includes(search);
      console.log(searchResponse);
-     if(searchResponse == false){
+
+          if(searchResponse == false){
+               try{
           hepsiburadaClass.getProductDetail(url).then((response) => {
                res.send(response);
                console.log(response);
           });
+          }catch(err){
+               res.send(err);
+          }
      }else{
           let split = url.split(search);
           let split2 = split[0];
+          try{
           hepsiburadaClass.getProductDetail(split2).then((response) => {
 
                res.send(response);
           });
+          }catch(err){
+               res.send(err);
+          }
      }
+
+     
 
 })
 
