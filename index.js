@@ -32,11 +32,13 @@ app.post("/hb", (req,res) => {
      if(searchResponse == false){
           hepsiburadaClass.getProductDetail(url).then((response) => {
                res.send(response);
+               console.log(response);
           });
      }else{
           let split = url.split(search);
           let split2 = split[0];
           hepsiburadaClass.getProductDetail(split2).then((response) => {
+               console.log(response);
                res.send(response);
           });
      }
