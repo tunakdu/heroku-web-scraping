@@ -28,7 +28,7 @@ app.post("/hb", (req,res) => {
      const url =  req.body["url"];
      let search= "?magaza";
      let searchResponse = url.includes(search);
-
+     console.log("tunaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
      if(searchResponse == false){
           hepsiburadaClass.getProductDetail(url).then((response) => {
                res.send(response);
