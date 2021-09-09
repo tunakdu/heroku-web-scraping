@@ -35,7 +35,6 @@ app.post("/hb", (req,res) => {
                console.log(response);
           });
      }else{
-          console.log("tunaaaaaaaa geliyor muuu");
           let split = url.split(search);
           let split2 = split[0];
           hepsiburadaClass.getProductDetail(split2).then((response) => {
