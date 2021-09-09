@@ -25,23 +25,21 @@ app.post("/trendyoll", (req,res) => {
 
 app.post("/hb", (req,res) => {
 
-     res.send("ne oluyorum be agam");
+     const url =  req.body["url"];
+     let search= "?magaza";
+     let searchResponse = url.includes(search);
 
-     // const url =  req.body["url"];
-     // let search= "?magaza";
-     // let searchResponse = url.includes(search);
-
-     // if(searchResponse == false){
-     //      hepsiburadaClass.getProductDetail(url).then((response) => {
-     //           res.send(response);
-     //      });
-     // }else{
-     //      let split = url.split(search);
-     //      let split2 = split[0];
-     //      hepsiburadaClass.getProductDetail(split2).then((response) => {
-     //           res.send(response);
-     //      });
-     // }
+     if(searchResponse == false){
+          hepsiburadaClass.getProductDetail(url).then((response) => {
+               res.send(response);
+          });
+     }else{
+          let split = url.split(search);
+          let split2 = split[0];
+          hepsiburadaClass.getProductDetail(split2).then((response) => {
+               res.send(response);
+          });
+     }
 
 })
 
