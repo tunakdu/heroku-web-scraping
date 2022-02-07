@@ -10,11 +10,16 @@ class Trendyol
                let data = response["data"];
                let stringArray = data.toString();
                let split = stringArray.split("window.__PRODUCT_DETAIL_APP_INITIAL_STATE__=");
-               let split2 = split[1].split(',"htmlContent":');
-               let split2End = split2[0] + "}";
-
-               let dataResponse = JSON.parse(split2End);
-               let saltData = dataResponse["product"];
+               let saltData = null;
+               if(split.length > 0)
+               {
+                    let split2 = split[1].value.split(',"htmlContent":');
+                    let split2End = split2[0] + "}";
+     
+                    let dataResponse = JSON.parse(split2End);
+                    saltData = dataResponse["product"];
+               }
+               
 
 
 
