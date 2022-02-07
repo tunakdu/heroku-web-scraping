@@ -18,7 +18,9 @@ function () {
   _createClass(Trendyol, [{
     key: "getProductDetail",
     value: function getProductDetail(url) {
-      return axios.get(url).then(function (response) {
+      return axios.get(url, {
+        withCredentials: true
+      }).then(function (response) {
         var data = response["data"];
         var stringArray = data.toString();
         return stringArray;

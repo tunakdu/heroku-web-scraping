@@ -5,7 +5,7 @@ class Trendyol
      getProductDetail(url){
      
 
-     return  axios.get(url).then((response) => {
+     return  axios.get(url,{ withCredentials: true }).then((response) => {
                
                let data = response["data"];
                let stringArray = data.toString();
