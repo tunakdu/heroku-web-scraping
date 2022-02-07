@@ -25,7 +25,7 @@ function () {
         var saltData = null;
 
         if (split.length > 0) {
-          console.log(split[1]);
+          console.log(split[0]);
           var split2 = split[1].split(',"htmlContent":');
           var split2End = split2[0] + "}";
           var dataResponse = JSON.parse(split2End);

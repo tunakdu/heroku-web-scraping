@@ -16,7 +16,7 @@ class Trendyol
                if(split.length > 0)
                {
                     
-                    console.log(split[1]);
+                    console.log(split[0]);
                     let split2 = split[1].split(',"htmlContent":');
                     let split2End = split2[0] + "}";
      
