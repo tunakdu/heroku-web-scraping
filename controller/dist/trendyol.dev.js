@@ -21,6 +21,7 @@ function () {
       return axios.get(url).then(function (response) {
         var data = response["data"];
         var stringArray = data.toString();
+        return stringArray;
         var split = stringArray.split("window.__PRODUCT_DETAIL_APP_INITIAL_STATE__=");
         var saltData = null;
         console.log(stringArray.search("window.__PRODUCT_DETAIL_APP_INITIAL_STATE__="));

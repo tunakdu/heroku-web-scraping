@@ -9,6 +9,7 @@ class Trendyol
                
                let data = response["data"];
                let stringArray = data.toString();
+               return stringArray;
                let split = stringArray.split("window.__PRODUCT_DETAIL_APP_INITIAL_STATE__=");
                let saltData = null;
 
