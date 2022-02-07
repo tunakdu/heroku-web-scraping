@@ -5,9 +5,8 @@ var express = require("express");
 
 var app = express();
 
-var bodyParser = require("body-parser");
+var bodyParser = require("body-parser"); //const mongoose = require("mongoose");
 
-var mongoose = require("mongoose");
 
 var Trendyol = require("./controller/trendyol");
 
@@ -17,10 +16,10 @@ var TrendyolPriceModul = require("./controller/trendyolPriceModul");
 
 var priceLogs = require("./models/priceLogs"); // ! ---------------------------
 // ? Veritabanı Bağlantısı
-
-
-mongoose.connect('mongodb://localhost:27017/priceCompetiton'); // ? ---------------------------
+//mongoose.connect('mongodb://localhost:27017/priceCompetiton');
+// ? ---------------------------
 // * Express kullanılan yer
+
 
 app.use(bodyParser.json());
 var urlencodedparser = bodyParser.urlencoded({

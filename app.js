@@ -3,7 +3,7 @@
 const express = require ("express");
 const app = express();
 const bodyParser = require ("body-parser");
-const mongoose = require("mongoose");
+//const mongoose = require("mongoose");
 
 const Trendyol = require("./controller/trendyol");
 const Hepsiburada = require("./controller/hb");
@@ -14,7 +14,7 @@ const priceLogs = require("./models/priceLogs");
 
 // ? Veritabanı Bağlantısı
 
-mongoose.connect('mongodb://localhost:27017/priceCompetiton');
+//mongoose.connect('mongodb://localhost:27017/priceCompetiton');
 
 // ? ---------------------------
 
