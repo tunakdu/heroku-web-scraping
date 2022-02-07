@@ -12,12 +12,11 @@ class Trendyol
                let split = stringArray.split("window.__PRODUCT_DETAIL_APP_INITIAL_STATE__=");
                let saltData = null;
 
-               console.log(stringArray);
-               console.log(split);
 
                if(split.length > 0)
                {
                     
+                    console.log(split[1]);
                     let split2 = split[1].split(',"htmlContent":');
                     let split2End = split2[0] + "}";
      
