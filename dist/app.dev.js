@@ -14,33 +14,50 @@ var Hepsiburada = require("./controller/hb");
 
 var TrendyolPriceModul = require("./controller/trendyolPriceModul");
 
-var priceLogs = require("./models/priceLogs"); // ! ---------------------------
+var priceLogs = require("./models/priceLogs");
+
+var axios = require("axios");
+
+var params = {
+  access_key: "1e345bf7bf8d0d2c8a431307ec35ce89",
+  url: "http://scrapestack.com"
+}; // ! ---------------------------
 // ? Veritabanı Bağlantısı
 //mongoose.connect('mongodb://localhost:27017/priceCompetiton');
 // ? ---------------------------
 // * Express kullanılan yer
-
 
 app.use(bodyParser.json());
 var urlencodedparser = bodyParser.urlencoded({
   extended: false
 });
 app.set("view engine", "ejs");
-app.use(express["static"]('public'));
-app.use('/css', express["static"](__dirname + 'public/css'));
-app.use('/js', express["static"](__dirname + 'public/js'));
-app.use('/img', express["static"](__dirname + 'public/img')); // * -------------------------
+app.use(express["static"]("public"));
+app.use("/css", express["static"](__dirname + "public/css"));
+app.use("/js", express["static"](__dirname + "public/js"));
+app.use("/img", express["static"](__dirname + "public/img")); // * -------------------------
 
 var hepsiburadaClass = new Hepsiburada();
 var trendyolClass = new Trendyol();
 var trendyolPriceModulClass = new TrendyolPriceModul();
-app.get('/', function (req, res) {
+app.get("/", function (req, res) {
   res.render("index");
 });
 app.post("/trendyol", function (req, res) {
   var url = req.body["url"];
   trendyolClass.getProductDetail(url).then(function (response) {
     res.send(response);
+  });
+});
+app.post("/test", function (req, res) {
+  var url = req.body["url"];
+  axios.get(url, {
+    params: params
+  }).then(function (response) {
+    var websiteContent = response.data;
+    console.log(websiteContent);
+  })["catch"](function (error) {
+    console.log(error);
   });
 });
 app.post("/trendyolPriceModul", urlencodedparser, function (req, res) {
