@@ -30,8 +30,8 @@ function () {
       }).then(function (response) {
         var data = response["data"];
         var stringArray = data.toString();
+        console.log(stringArray);
         var split = stringArray.split("window.__PRODUCT_DETAIL_APP_INITIAL_STATE__=");
-        console.log(split);
         var saltData = null;
 
         if (split.length > 0) {
