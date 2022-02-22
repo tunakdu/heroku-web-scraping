@@ -8,6 +8,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 var axios = require('axios');
 
+var params = {
+  access_key: '1e345bf7bf8d0d2c8a431307ec35ce89',
+  url: 'http://scrapestack.com'
+};
+
 var Trendyol =
 /*#__PURE__*/
 function () {
@@ -19,11 +24,12 @@ function () {
     key: "getProductDetail",
     value: function getProductDetail(url) {
       return axios.get(url, {
+        params: params
+      }, {
         withCredentials: true
       }).then(function (response) {
         var data = response["data"];
         var stringArray = data.toString();
-        return stringArray;
         var split = stringArray.split("window.__PRODUCT_DETAIL_APP_INITIAL_STATE__=");
         var saltData = null;
         console.log(stringArray.search("window.__PRODUCT_DETAIL_APP_INITIAL_STATE__="));

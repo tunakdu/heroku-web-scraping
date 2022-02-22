@@ -1,15 +1,19 @@
 const axios = require('axios');
+const params = {
+     access_key: '1e345bf7bf8d0d2c8a431307ec35ce89',
+     url: 'http://scrapestack.com'
+}
+
 class Trendyol
 {
 
      getProductDetail(url){
      
 
-     return  axios.get(url,{ withCredentials: true }).then((response) => {
+     return  axios.get(url,{params},{ withCredentials: true }).then((response) => {
                
                let data = response["data"];
                let stringArray = data.toString();
-               return stringArray;
                let split = stringArray.split("window.__PRODUCT_DETAIL_APP_INITIAL_STATE__=");
                let saltData = null;
 
@@ -25,8 +29,6 @@ class Trendyol
                     saltData = dataResponse["product"];
                }
                
-
-
 
 
                if(saltData["variants"].length < 2){
