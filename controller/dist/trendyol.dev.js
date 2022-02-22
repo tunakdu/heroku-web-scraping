@@ -28,11 +28,11 @@ function () {
       }, {
         withCredentials: true
       }).then(function (response) {
+        console.log(url);
         var data = response["data"];
         var stringArray = data.toString();
         var split = stringArray.split("window.__PRODUCT_DETAIL_APP_INITIAL_STATE__=");
         var saltData = null;
-        console.log(stringArray.search("window.__PRODUCT_DETAIL_APP_INITIAL_STATE__="));
 
         if (split.length > 0) {
           var split2 = split[1].split(',"htmlContent":');
