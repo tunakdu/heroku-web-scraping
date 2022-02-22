@@ -20,7 +20,7 @@ var axios = require("axios");
 
 var params = {
   access_key: "1e345bf7bf8d0d2c8a431307ec35ce89",
-  url: "https://apple.com"
+  url: "https://www.trendyol.com/maviev/12-adet-ahsap-gorunumlu-elbise-askisi-p-52122841?boutiqueId=598704&merchantId=117992"
 }; // ! ---------------------------
 // ? Veritabanı Bağlantısı
 //mongoose.connect('mongodb://localhost:27017/priceCompetiton');

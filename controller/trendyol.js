@@ -1,7 +1,7 @@
 const axios = require('axios');
 const params = {
      access_key: '1e345bf7bf8d0d2c8a431307ec35ce89',
-     url: 'http://scrapestack.com'
+     url: 'https://www.trendyol.com/maviev/12-adet-ahsap-gorunumlu-elbise-askisi-p-52122841?boutiqueId=598704&merchantId=117992'
 }
 
 class Trendyol
@@ -10,7 +10,7 @@ class Trendyol
      getProductDetail(url){
      
 
-     return  axios.get(url,{params},{ withCredentials: true }).then((response) => {
+     return  axios.get("http://api.scrapestack.com/scrape",{params},{ withCredentials: true }).then((response) => {
                
                let data = response["data"];
                let stringArray = data.toString();
