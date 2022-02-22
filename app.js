@@ -13,7 +13,7 @@ const priceLogs = require("./models/priceLogs");
 const axios = require("axios");
 const params = {
   access_key: "1e345bf7bf8d0d2c8a431307ec35ce89",
-  url: "http://scrapestack.com",
+  url: "https://apple.com",
 };
 
 // ! ---------------------------
@@ -56,7 +56,7 @@ app.post("/test", (req, res) => {
   const url = req.body["url"];
 
   axios
-    .get(url, { params })
+    .get("http://api.scrapestack.com/scrape", { params })
     .then((response) => {
       const websiteContent = response.data;
       console.log(websiteContent);
