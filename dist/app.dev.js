@@ -50,15 +50,28 @@ app.post("/trendyol", function (req, res) {
   });
 });
 app.post("/test", function (req, res) {
-  var url = req.body["url"];
-  axios.get("http://api.scrapestack.com/scrape", {
-    params: params
-  }).then(function (response) {
-    var websiteContent = response.data;
-    console.log(websiteContent);
+  var myHeaders = new Headers();
+  myHeaders.append("apikey", "OyJ6XkC696k7bV70KVKLJCZuXTbT6DAQ");
+  var requestOptions = {
+    method: 'GET',
+    redirect: 'follow',
+    headers: myHeaders
+  };
+  fetch("https://api.apilayer.com/adv_scraper/scraper?url=https%3A%2F%2Fwww.trendyol.com%2Fkzy-mobilya%2Ftek-kapak-5-rafli-dolap-p-4348364%3FboutiqueId%3D61%26merchantId%3D107234", requestOptions).then(function (response) {
+    return response.text();
+  }).then(function (result) {
+    return console.log(result);
   })["catch"](function (error) {
-    console.log(error);
-  });
+    return console.log('error', error);
+  }); // axios
+  //   .get("http://api.scrapestack.com/scrape", { params })
+  //   .then((response) => {
+  //     const websiteContent = response.data;
+  //     res.send(websiteContent);
+  //   })
+  //   .catch((error) => {
+  //    res.send(error);
+  //   });
 });
 app.post("/trendyolPriceModul", urlencodedparser, function (req, res) {
   var url = req.body["link"];
